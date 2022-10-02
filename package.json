@@ -1,0 +1,61 @@
+{
+  "name": "robot-ide",
+  "version": "0.1.0",
+  "description": "interactive development environment to learn programming with robots",
+  "main": "src/client.js",
+  "browserify": {
+    "transform": [
+      "sheetify/transform",
+      "yo-yoify"
+    ]
+  },
+  "dependencies": {
+    "@robotopia/agent-runtime": "^1.0.2",
+    "@robotopia/assets-loader": "^1.0.1",
+    "@robotopia/choo-game": "^1.0.1",
+    "@robotopia/clock": "^1.0.2",
+    "blockly": "^1.0.0",
+    "cache-element": "^2.0.1",
+    "choo": "^4.0.1",
+    "choo-component": "^0.2.2",
+    "classnames": "^2.2.5",
+    "cuid": "^1.3.8",
+    "immutability-helper": "^2.5.0",
+    "lodash": "^4.17.4",
+    "pathfinding": "0.4.18",
+    "peer-star": "git+https://github.com/robotopia-x/networking.git",
+    "action-overlay": "git+https://github.com/robotopia-x/start_action_screen.git",
+    "sheetify": "^6.2.0",
+    "uid": "0.0.2",
+    "x2js": "https://github.com/abdmob/x2js.git"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify-hmr": "^0.3.5",
+    "budo": "^10.0.4",
+    "standard": "^10.0.3",
+    "yo-yoify": "^4.1.0"
+  },
+  "scripts": {
+    "test": "standard",
+    "lint": "standard --fix",
+    "start": "budo index.js:bundle.js",
+    "build": "browserify index.js -t yo-yoify -t sheetify/transform -t [ babelify --presets [ es2015 stage-2 ] ] > bundle.js",
+    "deploy": "./bin/deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdm-project/robot-ide.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hdm-project/robot-ide/issues"
+  },
+  "homepage": "https://github.com/hdm-project/robot-ide#readme",
+  "private": true
+}
